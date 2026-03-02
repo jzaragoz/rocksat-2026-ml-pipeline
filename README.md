@@ -1,4 +1,4 @@
-# RockSat-X 2026 — Real-Time ML Flight Software
+# RockSat-2026 — Real-Time ML Flight Software
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange?logo=tensorflow)
 ![Hailo](https://img.shields.io/badge/Hailo--8_NPU-26_TOPS-green)
