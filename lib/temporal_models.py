@@ -64,27 +64,12 @@ def load_sensor_series(path: str = DATA_PATH, sensor_id: int | None = None):
     Returns dict  sensor_id → DataFrame(Time, X, Y, Z, Magnitude)  sorted by
     Time with no duplicates.  Gaps (boot gap T19-T45, launch gap T0-T5) are
     left as missing rows so window creation naturally avoids spanning them.
-
-    Supports both training CSV format (Time, Sensor, X, Y, Z) and
-    ML CSV format from test_main.py (mission_time_s, sensor_id, bx_raw, by_raw, bz_raw).
     """
     from data_loader import is_legacy_csv, parse_legacy_csv
     if is_legacy_csv(path):
         df = parse_legacy_csv(path)
     else:
         df = pd.read_csv(path)
-
-    # Normalise ML CSV column names → training format
-    col_map = {
-        'bx_raw': 'X', 'by_raw': 'Y', 'bz_raw': 'Z',
-        'mission_time_s': 'Time', 'sensor_id': 'Sensor',
-        'magnitude_measured': 'Magnitude',
-    }
-    rename = {old: new for old, new in col_map.items()
-              if old in df.columns and new not in df.columns}
-    if rename:
-        df = df.rename(columns=rename)
-
     if "Magnitude" not in df.columns:
         df["Magnitude"] = np.sqrt(df["X"]**2 + df["Y"]**2 + df["Z"]**2)
 
