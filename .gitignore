@@ -44,3 +44,4 @@ models/exports/
 hailo/*.hef
 hailo/*.npy
 flight_controller.py
+scripts/
