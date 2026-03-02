@@ -1,0 +1,31 @@
+# GHOST 2025 RockSat-X Flight Software
+# Requirements for Raspberry Pi 5 with Hailo-8 NPU
+#
+# Install with: pip install -r requirements_pi.txt
+#
+# Note: hailo_platform must be installed separately from Hailo Developer Zone
+
+# Core scientific computing
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+tensorflow>=2.13.0  # Use tensorflow-aarch64 on Pi if needed
+
+# Visualization
+matplotlib>=3.7.0
+
+# Serial telemetry
+pyserial>=3.5
+
+# Sensor libraries (Raspberry Pi only)
+adafruit-blinka>=8.0.0              # board, busio for CircuitPython on Pi
+adafruit-circuitpython-ads1x15>=2.2 # ADS1115 ADC
+adafruit-circuitpython-mprls>=1.2   # MPRLS pressure sensor
+smbus2>=0.4.0                       # I2C for RM3100 magnetometer
+gpiozero>=2.0                       # GPIO for thermocouples + flight controller
+
+# Optional: Only on Pi with Hailo NPU
+# hailo_platform  # Install from Hailo Developer Zone

@@ -1,0 +1,45 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+
+# Runtime outputs (regenerated)
+output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Hailo compiler artifacts
+*.whl
+*.whl:Zone.Identifier
+*.zip:Zone.Identifier
+hailort.log
+RECOMPILE_*/
+
+# Misc
+*.log
+*.log.*
+
+# Proprietary Team Code
+sensors/
+Actualizado softwares de sensores/
+
+# Proprietary Flight Data
+data/
+bp*.csv
+
+# Derived Model Weights (trained on flight data)
+models/cached/
+models/exports/
+hailo/*.hef
+hailo/*.npy
